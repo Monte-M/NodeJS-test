@@ -17,12 +17,20 @@ formEL.addEventListener('submit', async (e) => {
   });
   const dataBack = await resp.json();
   console.log('dataBack login', dataBack);
+  if (dataBack.error === 'passwords not match') {
+    alert('password dont match');
+  }
+  if (dataBack.error === 'email does not exsits') {
+    alert('No such user');
+  }
   if (dataBack.msg === 'success') {
-    const { email, token } = dataBack.data;
+    const { email, token } = dataBack.loggedInUser;
+    const { id } = dataBack.dbResult[0];
     localStorage.setItem('email', email);
     localStorage.setItem('token', token);
+    localStorage.setItem('user_id', id);
     // redirect to groups page
-    // window.location = 'index.html';
+    window.location = 'groups.html';
   }
 });
 

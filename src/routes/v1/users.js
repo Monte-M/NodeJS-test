@@ -52,11 +52,11 @@ router.post('/login', validateLogin, async (req, res) => {
     expiresIn: '1h',
   });
 
-  const loggeInUser = {
+  const loggedInUser = {
     email: req.body.email,
     token: token,
   };
-  dbSuccess(res, loggeInUser);
+  res.json({ msg: 'success', loggedInUser, dbResult });
   // create jwt token and send it back
 });
 
