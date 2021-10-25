@@ -4,9 +4,9 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login</title>
+    <title>Register</title>
     <link rel="stylesheet" href="../css/style.css" />
-    <script src="../js/login.js" defer></script>
+    <script src="../js/register.js" defer></script>
   </head>
   <body>
     <div class="container">
@@ -18,18 +18,20 @@
         <h2>Split Bill</h2>
         <h4>BEST IN MARKET</h4>
       </div>
-      <form class="login-form">
-        <h2>Login</h2>
+      <form class="register-form">
+        <h2>Register</h2>
+        <label for="full_name">Full Name</label>
+        <input type="text" id="full_name" name="full_name" />
         <label for="email">Email</label>
         <input type="text" id="email" name="email" />
         <label for="password">Password</label>
         <input type="password" id="password" name="password" />
-        <button type="submit" class="login-btn">Login</button>
-        <h4>
-          Don't have an account?
-          <span class="register-btn-simple">Register</span>
-        </h4>
+        <label for="password2">Repeat Password</label>
+        <input type="password" id="password2" name="password2" />
+        <button type="submit" class="register-btn">Register</button>
+        <h4>Or perhaps, just <span class="login-btn-simple">login?</span></h4>
       </form>
+      <div class="error-field"></div>
     </div>
   </body>
 </html>
