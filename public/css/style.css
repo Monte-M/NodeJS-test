@@ -124,6 +124,12 @@
   margin: 20px;
 }
 
+.addGroup-container input {
+  width: 400px;
+  padding: 5px;
+  margin: 10px 0;
+}
+
 .addGroup-container button {
   font-weight: bold;
   border: 2px solid #000;

@@ -17,9 +17,9 @@ async function getGroupsAndDisplay(reqMethod = 'GET') {
   const item = data.data
     .map(
       (el) =>
-        `<div class="single-group">
-            <h2>ID: ${el.group_id}</h2>
-            <h5>${el.name}</h5>
+        `<div class="single-group" id="${el.group_id}">
+            <h2 id="${el.group_id}">ID: ${el.group_id}</h2>
+            <h5 id="${el.group_id}">${el.name}</h5>
         </div>`,
     )
     .join('');
@@ -57,4 +57,12 @@ addBtn.onclick = async (reqMethod = 'POST') => {
   });
   const dataBack = await resp.json();
   console.log(dataBack);
+};
+
+containerEl.onclick = (e) => {
+  const id = e.target.id;
+  if (id.length > 0) {
+    localStorage.setItem('group_id', id);
+    window.location.href = 'groups-single.html';
+  }
 };

@@ -6,6 +6,7 @@ const cors = require('cors');
 const usersRoute = require('./Routes/v1/users');
 const accountsRoutes = require('./Routes/v1/accounts');
 const groupsRoutes = require('./Routes/v1/groups');
+const billsRoutes = require('./Routes/v1/bills');
 
 const PORT = process.env.SERVER_PORT || 3000;
 
@@ -23,5 +24,6 @@ app.get('/', async (req, res) => {
 app.use('/users', usersRoute);
 app.use('/accounts', accountsRoutes);
 app.use('/groups', groupsRoutes);
+app.use('/bills', billsRoutes);
 
 app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));

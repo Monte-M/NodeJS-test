@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login</title>
     <link rel="stylesheet" href="../css/style.css" />
-    <script src="../js/login.js" defer></script>
+    <script src="../js/groups-single.js" defer></script>
   </head>
   <body>
     <div class="container">
@@ -19,27 +19,13 @@
         <h3 class="select-mainTitle">Group bills:</h3>
       </div>
       <table>
+        <thead>
+          <th>ID</th>
+          <th>Description</th>
+          <th>Amount</th>
+        </thead>
         <tbody>
-          <tr>
-            <th>ID</th>
-            <th>Description</th>
-            <th>Amount</th>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>For paper</td>
-            <td>$12</td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>For electricity</td>
-            <td>$40</td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>For electricity</td>
-            <td>$40</td>
-          </tr>
+          <tr></tr>
         </tbody>
       </table>
       <div class="addGroup-container">
@@ -48,7 +34,7 @@
         <input type="text" name="amount" id="amount" />
         <label for="description">Description:</label>
         <input type="text" name="description" id="description" />
-        <button type="submit">Add</button>
+        <button type="submit" class="addBill-btn">Add</button>
       </div>
     </div>
   </body>
