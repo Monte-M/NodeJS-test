@@ -13,7 +13,7 @@ router.post('/', authenticateToken, async (req, res) => {
   if (dbResult === false) {
     return res.status(500).json({ error: 'something went wrong' });
   }
-  res.json({ msg: 'account added', dbResult });
+  res.json({ msg: 'group added' });
 });
 
 // GET / groups
@@ -28,6 +28,18 @@ router.get('/:id', authenticateToken, async (req, res) => {
   WHERE accounts.user_id = ?
     `;
   const dbResult = await dbAction(sql, [id], [req.email]);
+  if (dbResult === false) return dbFail(res);
+  dbSuccess(res, dbResult);
+});
+
+router.get('/', authenticateToken, async (req, res) => {
+  const sql = `
+  SELECT accounts.id, accounts.group_id, groups.name
+  FROM accounts
+  INNER JOIN groups
+  ON accounts.group_id = groups.id
+    `;
+  const dbResult = await dbAction(sql, [req.email]);
   if (dbResult === false) return dbFail(res);
   dbSuccess(res, dbResult);
 });
