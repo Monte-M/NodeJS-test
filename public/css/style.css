@@ -84,3 +84,62 @@
 .error-field h2 {
   margin: 0;
 }
+
+/* Groups */
+
+.select-mainTitle {
+  font-size: 20px;
+  margin: 20px;
+  font-weight: normal;
+}
+
+.group-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.single-group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border: 1px solid gray;
+  box-shadow: 3px 3px 5px;
+  border-radius: 5px;
+  padding: 40px;
+  margin: 30px;
+  transition: 0.5s;
+}
+
+.single-group:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+.addGroup-container {
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+}
+
+.addGroup-container input {
+  width: 400px;
+  padding: 5px;
+  margin: 10px 0;
+}
+
+.addGroup-container button {
+  font-weight: bold;
+  border: 2px solid #000;
+  background-color: white;
+  padding: 10px;
+  width: 60px;
+  cursor: pointer;
+}
+
+.addGroup-container label {
+  margin: 10px 0 0;
+  font-weight: bold;
+}
