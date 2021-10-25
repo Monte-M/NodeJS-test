@@ -143,3 +143,19 @@
   margin: 10px 0 0;
   font-weight: bold;
 }
+
+/* Single Group */
+
+table {
+  width: 800px;
+}
+
+table tr {
+  display: flex;
+  padding: 10px;
+  justify-content: space-between;
+}
+
+table tr:nth-child(2n) {
+  background-color: lightgray;
+}

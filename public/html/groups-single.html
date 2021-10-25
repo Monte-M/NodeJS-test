@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <script src="../js/login.js" defer></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="top-section">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/1200px-Google_%22G%22_Logo.svg.png"
+          alt=""
+        />
+        <h2>Split Bill</h2>
+        <h3 class="select-mainTitle">Group bills:</h3>
+      </div>
+      <table>
+        <tbody>
+          <tr>
+            <th>ID</th>
+            <th>Description</th>
+            <th>Amount</th>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td>For paper</td>
+            <td>$12</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>For electricity</td>
+            <td>$40</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>For electricity</td>
+            <td>$40</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="addGroup-container">
+        <h3>Add bill</h3>
+        <label for="amount">Amount:</label>
+        <input type="text" name="amount" id="amount" />
+        <label for="description">Description:</label>
+        <input type="text" name="description" id="description" />
+        <button type="submit">Add</button>
+      </div>
+    </div>
+  </body>
+</html>
