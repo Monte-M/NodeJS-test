@@ -5,6 +5,7 @@ const tbodyEl = document.querySelector('tbody');
 const addBtn = document.querySelector('.addBill-btn');
 const description = document.getElementById('description');
 const amount = document.getElementById('amount');
+const back = document.querySelector('.back-btn');
 
 async function getBillsAndDisplay(reqMethod = 'GET') {
   const token = localStorage.getItem('token');
@@ -49,4 +50,11 @@ addBtn.onclick = async (reqMethod = 'POST') => {
   });
   const dataBack = await resp.json();
   console.log(dataBack);
+  if (dataBack.msg === 'bill added') {
+    window.location.reload();
+  }
+};
+
+back.onclick = () => {
+  window.location.href = 'groups.html';
 };

@@ -68,6 +68,13 @@
   padding: 10px;
   width: 80px;
   cursor: pointer;
+  transition: 0.5s;
+}
+
+.login-btn:hover,
+.register-btn:hover {
+  background-color: #444;
+  color: #fff;
 }
 
 .login-form h4,
@@ -130,13 +137,21 @@
   margin: 10px 0;
 }
 
-.addGroup-container button {
+.addBill-btn,
+.addGroup-btn {
   font-weight: bold;
   border: 2px solid #000;
   background-color: white;
   padding: 10px;
   width: 60px;
   cursor: pointer;
+  transition: 0.5s;
+}
+
+.addBill-btn:hover,
+.addGroup-btn:hover {
+  background-color: #444;
+  color: #fff;
 }
 
 .addGroup-container label {
@@ -162,6 +177,20 @@ table tr {
   justify-content: space-between;
 }
 
-table tr:nth-child(2n) {
+tbody tr:nth-child(odd) {
   background-color: lightgray;
+}
+
+.back-btn {
+  font-weight: bold;
+  border: 2px solid rgb(125, 192, 87);
+  background-color: white;
+  padding: 10px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.back-btn:hover {
+  background-color: rgb(125, 192, 87);
+  color: #fff;
 }

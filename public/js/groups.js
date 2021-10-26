@@ -57,6 +57,9 @@ addBtn.onclick = async (reqMethod = 'POST') => {
   });
   const dataBack = await resp.json();
   console.log(dataBack);
+  if (dataBack.msg === 'group added') {
+    window.location.reload();
+  }
 };
 
 containerEl.onclick = (e) => {

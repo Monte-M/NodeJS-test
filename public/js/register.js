@@ -10,7 +10,6 @@ formEL.addEventListener('submit', async (e) => {
   console.log('sending');
   const formData = new FormData(formEL);
   console.log('formData', Object.fromEntries(formData));
-  // send fetch
   const resp = await fetch(`${URL}/users/register`, {
     method: 'POST',
     headers: {
@@ -20,13 +19,9 @@ formEL.addEventListener('submit', async (e) => {
   });
   const dataBack = await resp.json();
   console.log('dataBack', dataBack);
-  if (password1 != password2) {
+  if (password1.value != password2.value) {
     error.innerHTML = `<h2>Passwords do not match.</h2>`;
   }
-  // if (dataBack.error) {
-  //   console.log(dataBack.error);
-  //   error.innerHTML = `<h2>Email already exists</h2>`;
-  // }
   if (dataBack.msg === 'register success') {
     error.innerHTML = `<h2>Successfully Registered. Please wait till we get you to login page.</h2>`;
     window.setTimeout(function () {

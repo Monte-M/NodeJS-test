@@ -8,7 +8,7 @@ async function validateRegister(req, res, next) {
     full_name: joi.string().required(),
     email: joi.string().email().required(),
     password: joi.string().min(6).required(),
-    password2: joi.string().min(6).required(),
+    password2: joi.string().min(6).required().valid(joi.ref('password')),
   });
   try {
     await schema.validateAsync(req.body, { abortEarly: false });
