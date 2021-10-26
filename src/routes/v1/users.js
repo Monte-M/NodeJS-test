@@ -1,5 +1,5 @@
 const express = require('express');
-const { dbAction, dbFail, dbSuccess } = require('../../utils/dbHelper');
+const { dbAction, dbFail } = require('../../utils/dbHelper');
 const { hashValue, verifyHash } = require('../../utils/hashHelper');
 const { validateRegister } = require('../../utils/validateHelper');
 const jwt = require('jsonwebtoken');
@@ -30,7 +30,6 @@ router.post('/register', validateRegister, async (req, res) => {
   if (dbResult.affectedRows === 1) {
     return res.json({ msg: 'register success', newUser: newUser.email });
   }
-  console.log('no rows affected');
   res.status(500).json({ error: 'something went wrong' });
 });
 
@@ -38,16 +37,12 @@ router.post('/register', validateRegister, async (req, res) => {
 router.post('/login', validateLogin, async (req, res) => {
   const sql = 'SELECT * FROM users WHERE email = ?';
   const dbResult = await dbAction(sql, [req.body.email]);
-  // check if email exsits
   if (dbResult.length !== 1) {
     return dbFail(res, 'email does not exsits', 400);
   }
-  // email exists
-  // check password
   if (!verifyHash(req.body.password, dbResult[0].password)) {
     return dbFail(res, 'passwords not match');
   }
-  // pass match
   const token = jwt.sign({ email: req.body.email }, jwtSecret, {
     expiresIn: '1h',
   });
@@ -56,7 +51,6 @@ router.post('/login', validateLogin, async (req, res) => {
     token: token,
   };
   res.json({ msg: 'success', loggedInUser, dbResult });
-  // create jwt token and send it back
 });
 
 module.exports = router;
