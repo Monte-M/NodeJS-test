@@ -1,9 +1,12 @@
 const URL = 'http://localhost:3000';
+
+// Elements
 const id = localStorage.getItem('user_id');
 const containerEl = document.querySelector('.group-container');
 const selectEl = document.getElementById('groups');
 const addBtn = document.querySelector('.addGroup-btn');
 
+// Functions
 async function getGroupsAndDisplay(reqMethod = 'GET') {
   const token = localStorage.getItem('token');
   const resp = await fetch(`${URL}/accounts/${id}`, {
@@ -13,7 +16,6 @@ async function getGroupsAndDisplay(reqMethod = 'GET') {
     },
   });
   const data = await resp.json();
-  //   console.log('data', data.data);
   const item = data.data
     .map(
       (el) =>
@@ -31,7 +33,6 @@ getGroupsAndDisplay();
 async function getPossibleGroups() {
   const resp = await fetch(`${URL}/groups`);
   const data = await resp.json();
-  console.log(data.data);
   const item = data.data
     .map((el) => `<option value="${el.id}">${el.name}</option>`)
     .join('');
@@ -46,7 +47,6 @@ addBtn.onclick = async (reqMethod = 'POST') => {
     user_id: id,
     group_id: selectEl.value,
   };
-  console.log(userChoice);
   const resp = await fetch(`${URL}/accounts`, {
     method: 'POST',
     headers: {
@@ -56,7 +56,6 @@ addBtn.onclick = async (reqMethod = 'POST') => {
     body: JSON.stringify(userChoice),
   });
   const dataBack = await resp.json();
-  console.log(dataBack);
   if (dataBack.msg === 'group added') {
     window.location.reload();
   }

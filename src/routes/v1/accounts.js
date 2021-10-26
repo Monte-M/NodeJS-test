@@ -6,7 +6,6 @@ const router = express.Router();
 
 // POST / accounts;
 router.post('/', authenticateToken, async (req, res) => {
-  //   // after validation
   const sql = `INSERT INTO accounts (user_id, group_id) VALUES (?, ?)`;
   const { user_id, group_id } = req.body;
   const dbResult = await dbAction(sql, [user_id, group_id]);
@@ -32,6 +31,7 @@ router.get('/:id', authenticateToken, async (req, res) => {
   dbSuccess(res, dbResult);
 });
 
+// GET all possible groups
 router.get('/', authenticateToken, async (req, res) => {
   const sql = `
   SELECT accounts.id, accounts.group_id, groups.name

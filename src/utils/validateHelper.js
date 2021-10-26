@@ -2,8 +2,6 @@ const joi = require('joi');
 
 // eslint-disable-next-line consistent-return
 async function validateRegister(req, res, next) {
-  console.log('body got to validate:', req.body);
-  // validate body using joi
   const schema = joi.object({
     full_name: joi.string().required(),
     email: joi.string().email().required(),
@@ -26,8 +24,6 @@ async function validateRegister(req, res, next) {
 }
 
 async function validateLogin(req, res, next) {
-  console.log('body got to validate:', req.body);
-  // validate body using joi
   const schema = joi.object({
     email: joi.string().email().required(),
     password: joi.string().min(6).required(),

@@ -8,7 +8,6 @@ function verifyHash(hashedPass, hash) {
   if (bcrypt.compareSync(hashedPass, hash)) {
     return true;
   }
-  // return bcrypt.compareSync(hashedPass, hash)
 }
 
 module.exports = {

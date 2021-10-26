@@ -1,10 +1,13 @@
 const URL = 'http://localhost:3000';
+
+// Elements
 const formEL = document.querySelector('.register-form');
 const error = document.querySelector('.error-field');
 const password1 = document.getElementById('password');
 const password2 = document.getElementById('password2');
 const loginBtn = document.querySelector('.login-btn-simple');
 
+// Functions
 formEL.addEventListener('submit', async (e) => {
   e.preventDefault();
   const formData = new FormData(formEL);

@@ -4,6 +4,7 @@ const { dbAction, dbFail, dbSuccess } = require('../../utils/dbHelper');
 const { authenticateToken } = require('../../utils/middleware');
 const router = express.Router();
 
+// GET bills for specific Group
 router.get('/:id', authenticateToken, async (req, res) => {
   const { id } = req.params;
   if (!id) return dbFail(res, 'bad input', 400);
@@ -16,8 +17,8 @@ router.get('/:id', authenticateToken, async (req, res) => {
   dbSuccess(res, dbResult);
 });
 
+// Post new Bill
 router.post('/', authenticateToken, async (req, res) => {
-  //   // after validation
   const sql = `INSERT INTO bills (group_id, description, amount) VALUES (?, ?, ?)`;
   const { group_id, description, amount } = req.body;
   const dbResult = await dbAction(sql, [group_id, description, amount]);

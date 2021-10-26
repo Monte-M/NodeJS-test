@@ -1,9 +1,12 @@
 const URL = 'http://localhost:3000';
+
+// Elements
 const formEL = document.querySelector('.login-form');
 const registerBtn = document.querySelector('.register-btn-simple');
 const password1 = document.getElementById('password');
 const error = document.querySelector('.error-field');
 
+// Functions
 formEL.addEventListener('submit', async (e) => {
   e.preventDefault();
   const formData = new FormData(formEL);

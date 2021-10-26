@@ -1,12 +1,14 @@
 const URL = 'http://localhost:3000';
 const groupId = localStorage.getItem('group_id');
 
+// Elements
 const tbodyEl = document.querySelector('tbody');
 const addBtn = document.querySelector('.addBill-btn');
 const description = document.getElementById('description');
 const amount = document.getElementById('amount');
 const back = document.querySelector('.back-btn');
 
+// Functions
 async function getBillsAndDisplay(reqMethod = 'GET') {
   const token = localStorage.getItem('token');
   const resp = await fetch(`${URL}/bills/${groupId}`, {
@@ -16,8 +18,6 @@ async function getBillsAndDisplay(reqMethod = 'GET') {
     },
   });
   const data = await resp.json();
-
-  console.log('data', data.data);
   const item = data.data
     .map(
       (el) =>
@@ -49,7 +49,6 @@ addBtn.onclick = async (reqMethod = 'POST') => {
     body: JSON.stringify(newBill),
   });
   const dataBack = await resp.json();
-  console.log(dataBack);
   if (dataBack.msg === 'bill added') {
     window.location.reload();
   }
